@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="text-xl font-semibold leading-tight text-gray-800 dark:text-gray-200">
-            {{ __('Users') }}
+            {{ __('Clents') }}
         </h2>
     </x-slot>
 
@@ -10,10 +10,10 @@
             <div class="overflow-hidden bg-white shadow-sm dark:bg-gray-800 sm:rounded-lg">
                 <div class="p-6 text-gray-900 dark:text-gray-100">
 
-                    {{-- Add User --}}
+                    {{-- Add Client --}}
                     <div class="mb-4 text-right">
-                        <a href="{{ route('users.create') }}">
-                            <x-primary-button>Add new user</x-primary-button>
+                        <a href="{{ route('clients.create') }}">
+                            <x-primary-button>Add new client</x-primary-button>
                         </a>
                     </div>
 
@@ -24,13 +24,13 @@
                                 class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                                 <tr>
                                     <th scope="col" class="px-6 py-3">
-                                        First name
+                                        Company
                                     </th>
                                     <th scope="col" class="px-6 py-3">
-                                        Last Name
+                                        Vat
                                     </th>
                                     <th scope="col" class="px-6 py-3">
-                                        Email
+                                        Address
                                     </th>
                                     <th scope="col" class="px-6 py-3">
                                         Action
@@ -40,25 +40,25 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @forelse ($users as $user)
+                                @forelse ($clients as $client)
                                     <tr
                                         class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
                                         <th scope="row"
                                             class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                            {{ $user->first_name }}
+                                            {{ $client->company_name }}
                                         </th>
                                         <td class="px-6 py-4 whitespace-nowrap">
-                                            {{ $user->last_name }}
+                                            {{ $client->company_vat }}
                                         </td>
                                         <td class="px-6 py-4 whitespace-nowrap">
-                                            {{ $user->email }}
+                                            {{ $client->company_address }}
                                         </td>
                                         <td class="px-6 py-4 space-x-4">
-                                            <a href="{{ route('users.edit', $user) }}"
+                                            <a href="{{ route('clients.edit', $client) }}"
                                                 class="font-medium text-blue-600 dark:text-blue-500 hover:underline">
                                                 Edit
                                             </a>
-                                            <form class="inline-flex" action="{{ route('users.destroy', $user) }}"
+                                            <form class="inline-flex" action="{{ route('clients.destroy', $client) }}"
                                                 method="POST" onsubmit="return confirm('Are you sure?')">
                                                 @method('DELETE')
                                                 @csrf
@@ -74,7 +74,7 @@
                                         class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
                                         <th scope="row"
                                             class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                            No user avaiable.
+                                            No client avaiable.
                                         </th>
                                         <td class="px-6 py-4"></td>
                                         <td class="px-6 py-4"></td>
@@ -88,7 +88,7 @@
                     </div>
 
                     {{-- Paginate --}}
-                    <div class="mt-4">{{ $users->links() }}</div>
+                    <div class="mt-4">{{ $clients->links() }}</div>
                 </div>
             </div>
         </div>

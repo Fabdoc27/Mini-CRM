@@ -1,5 +1,3 @@
-@section('title', 'Write a New Post')
-
 <x-app-layout>
     <x-slot name="header">
         <h2 class="text-xl font-semibold leading-tight text-gray-800 dark:text-gray-200">
@@ -36,7 +34,7 @@
                         <div class="mt-4">
                             <x-input-label for="email" :value="__('Email')" />
                             <x-text-input id="email" class="block w-full mt-1" type="email" name="email"
-                                :value="old('email')" required autocomplete="username" />
+                                :value="old('email')" required autocomplete="email" />
                             <x-input-error :messages="$errors->get('email')" class="mt-2" />
                         </div>
 
@@ -45,7 +43,7 @@
                             <x-input-label for="password" :value="__('Password')" />
 
                             <x-text-input id="password" class="block w-full mt-1" type="password" name="password"
-                                required autocomplete="new-password" />
+                                required />
 
                             <x-input-error :messages="$errors->get('password')" class="mt-2" />
                         </div>
@@ -55,7 +53,7 @@
                             <x-input-label for="password_confirmation" :value="__('Confirm Password')" />
 
                             <x-text-input id="password_confirmation" class="block w-full mt-1" type="password"
-                                name="password_confirmation" required autocomplete="new-password" />
+                                name="password_confirmation" required />
 
                             <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
                         </div>

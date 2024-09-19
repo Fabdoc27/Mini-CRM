@@ -1,5 +1,3 @@
-@section('title', 'Write a New Post')
-
 <x-app-layout>
     <x-slot name="header">
         <h2 class="text-xl font-semibold leading-tight text-gray-800 dark:text-gray-200">
@@ -37,7 +35,7 @@
                         <div class="mt-4">
                             <x-input-label for="email" :value="__('Email')" />
                             <x-text-input id="email" class="block w-full mt-1" type="email" name="email"
-                                :value="old('email', $user->email)" required autocomplete="username" />
+                                :value="old('email', $user->email)" required autocomplete="email" />
                             <x-input-error :messages="$errors->get('email')" class="mt-2" />
                         </div>
 
