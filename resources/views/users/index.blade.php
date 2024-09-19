@@ -13,9 +13,7 @@
                     {{-- Add Users --}}
                     <div class="mb-4 text-right">
                         <a href="{{ route('users.create') }}">
-                            <x-primary-button class="bg-teal-500 dark:bg-teal-400">
-                                Add new user
-                            </x-primary-button>
+                            <x-primary-button>Add new user</x-primary-button>
                         </a>
                     </div>
 
