@@ -22,9 +22,9 @@
                             <x-input-error :messages="$errors->get('contact_name')" class="mt-2" />
                         </div>
 
-                        <!-- Contact Address -->
+                        <!-- Contact Email -->
                         <div class="mt-4">
-                            <x-input-label for="contact_email" :value="__('Email')" />
+                            <x-input-label for="contact_email" :value="__('Contact Email')" />
                             <x-text-input id="contact_email" class="block w-full mt-1" type="email"
                                 name="contact_email" :value="old('contact_email')" required autocomplete="contact_email" />
                             <x-input-error :messages="$errors->get('contact_email')" class="mt-2" />

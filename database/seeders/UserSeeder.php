@@ -2,8 +2,8 @@
 
 namespace Database\Seeders;
 
+use App\Enums\RoleEnum;
 use App\Models\User;
-use App\RoleEnum;
 use Illuminate\Database\Seeder;
 
 class UserSeeder extends Seeder
