@@ -70,15 +70,17 @@
                                                 class="font-medium text-blue-600 dark:text-blue-500 hover:underline">
                                                 Edit
                                             </a>
-                                            <form class="inline-flex" action="{{ route('tasks.destroy', $task) }}"
-                                                method="POST" onsubmit="return confirm('Are you sure?')">
-                                                @method('DELETE')
-                                                @csrf
-                                                <button type="submit"
-                                                    class="font-medium text-red-600 dark:text-red-500 hover:underline">
-                                                    Delete
-                                                </button>
-                                            </form>
+                                            @can(\App\Enums\PermissionEnum::DELETE_TASKS->value)
+                                                <form class="inline-flex" action="{{ route('tasks.destroy', $task) }}"
+                                                    method="POST" onsubmit="return confirm('Are you sure?')">
+                                                    @method('DELETE')
+                                                    @csrf
+                                                    <button type="submit"
+                                                        class="font-medium text-red-600 dark:text-red-500 hover:underline">
+                                                        Delete
+                                                    </button>
+                                                </form>
+                                            @endcan
                                         </td>
                                     </tr>
                                 @empty
