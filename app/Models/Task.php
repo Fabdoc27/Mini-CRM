@@ -2,13 +2,13 @@
 
 namespace App\Models;
 
-use App\Enums\ProjectStatus;
+use App\Enums\TaskStatus;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Project extends Model
+class Task extends Model
 {
     use HasFactory, SoftDeletes;
 
@@ -19,12 +19,13 @@ class Project extends Model
         'status',
         'user_id',
         'client_id',
+        'project_id',
     ];
 
     protected function casts()
     {
         return [
-            'status' => ProjectStatus::class,
+            'status' => TaskStatus::class,
         ];
     }
 
@@ -36,5 +37,10 @@ class Project extends Model
     public function client(): BelongsTo
     {
         return $this->belongsTo(Client::class);
+    }
+
+    public function project(): BelongsTo
+    {
+        return $this->belongsTo(Project::class);
     }
 }
